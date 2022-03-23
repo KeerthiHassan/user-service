@@ -10,5 +10,5 @@ import java.util.List;
 public interface UserService {
 
     UserResponse updateUser(String userId, UpdateUser updateUser);
-
+    String deleteUser(String userId);
 }
