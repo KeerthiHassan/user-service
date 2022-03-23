@@ -23,7 +23,10 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     Feign feign;
 
-
+    @Override
+    public User createUser(User user) {
+        return userRepo.save(user);
+    }
 
     @Override
     public List<User> getUsers() {
