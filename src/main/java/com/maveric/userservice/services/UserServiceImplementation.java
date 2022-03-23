@@ -24,7 +24,7 @@ public class UserServiceImplementation implements UserService {
     Feign feign;
 
 
-   
+
 
 
 
@@ -59,6 +59,10 @@ public class UserServiceImplementation implements UserService {
         return userResponse;
 
     }
-
+    @Override
+    public String deleteUser(String userId) {
+        userRepo.deleteById(userId);
+        return "User successfully deleted";
+    }
 
 }
