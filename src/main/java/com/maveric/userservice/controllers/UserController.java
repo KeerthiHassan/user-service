@@ -17,7 +17,14 @@ public class UserController {
 
     @Autowired
     UserService userService;
-
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getUsers(){
+        return new ResponseEntity<List<User>>(userService.getUsers(), HttpStatus.OK);
+    }
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<UserResponse> getUsersById(@PathVariable("userId") String userId){
+        return new ResponseEntity<UserResponse>(userService.getUserDetails(userId), HttpStatus.OK);
+    }
 
     @PutMapping("/users/{userId}")
     public  ResponseEntity<UserResponse> updateUser(@RequestBody UpdateUser updateUser,@PathVariable("userId") String userId){

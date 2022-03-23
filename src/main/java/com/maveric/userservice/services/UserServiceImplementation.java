@@ -25,6 +25,28 @@ public class UserServiceImplementation implements UserService {
 
 
 
+    @Override
+    public List<User> getUsers() {
+        return userRepo.findAll();
+    }
+
+    @Override
+    public UserResponse getUserDetails(String userId) {
+        UserResponse userResponse=new UserResponse();
+        User user=userRepo.findByuserId(userId);
+        userResponse.setUserId(user.getUserId());
+        userResponse.setFirstName(user.getFirstName());
+        userResponse.setMiddleName(user.getMiddleName());
+        userResponse.setLastName(user.getLastName());
+        userResponse.setPhoneNumber(user.getPhoneNumber());
+        userResponse.setDateOfBirth(user.getDateOfBirth());
+        userResponse.setEmployeeNumber(user.getEmployeeNumber());
+        userResponse.setGender(user.getGender());
+        userResponse.setMaritalStatus(user.getMaritalStatus());
+        userResponse.setBloodGroup(user.getBloodGroup());
+        userResponse.setEmail(user.getEmail());
+        return userResponse;
+    }
 
 
 
