@@ -1,10 +1,12 @@
 package com.maveric.userservice.dto;
 
+import com.maveric.userservice.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 
 @Data
@@ -17,8 +19,8 @@ public class UserResponse {
     private String lastName;
     private String phoneNumber;
     private LocalDate dateOfBirth;
-    private String gender;
-    private String maritalStatus;
+    private Gender gender;
+    private String address;
     private String employeeNumber;
     private String bloodGroup;
     private String email;
