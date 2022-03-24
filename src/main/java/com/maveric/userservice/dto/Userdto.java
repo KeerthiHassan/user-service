@@ -1,12 +1,9 @@
-package com.maveric.userservice.model;
+package com.maveric.userservice.dto;
 
 import com.maveric.userservice.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,14 +11,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-@Document(collection = "user")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class Userdto {
 
-    @Id
-    private String userId;
     @NotEmpty(message = "Please provide First Name")
     @Size(min = 2,message = "Length of first name should be more than 2 character ")
     private String firstName;
@@ -34,7 +28,7 @@ public class User {
     private String phoneNumber;
     private LocalDate dateOfBirth;
     private Gender gender;
-    @NotEmpty(message = "Please provide address")
+    @NotEmpty(message = "Please provide Address")
     private String address;
     @NotEmpty(message = "Please provide EmployeeId")
     private String employeeNumber;
@@ -44,5 +38,4 @@ public class User {
     private String email;
     @NotBlank(message = "password cannot be null")
     private String password;
-
 }
